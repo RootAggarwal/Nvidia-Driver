@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MUPDefinition xsi:schemaLocation="http://schemas.dell.com/openmanage/cm/2/0/mupdefinition.xsd mupdefinition.xsd" xmlns="http://schemas.dell.com/openmanage/cm/2/0/mupdefinition.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <packageinformation>
+    <name>NVMUP</name>
+	<version>23.21.13.8508</version>
+    <installertype>custom</installertype>
+    <packagegrouping>single_package</packagegrouping>
+    <packagingtype>executable</packagingtype>
+    <releasetype>DRVR</releasetype>
+    <mupspecificationversion>2.4.3</mupspecificationversion>
+    <supportedoperatingsystems>
+      <osidentifier name="Vista" architecture="x64"/>
+      <osidentifier name="Windows7" architecture="x64"/>
+      <osidentifier name="Windows8" architecture="x64"/>
+      <osidentifier name="Windows8.1" architecture="x64"/>
+      <osidentifier name="Windows10" architecture="x64"/>
+      <osidentifier name="W2K12R2" architecture="x64"/>
+    </supportedoperatingsystems>
+    <content>
+      <Device componentID="104307">
+        <PCIInfo vendorID="10DE" deviceID="107D" subDeviceID="1154" subVendorID="10DE"/>
+        <Image type="DRVR" version="23.21.13.8508">
+          <file>nvdw.inf</file>
+          <file>nvdw.cat</file>
+          <file>nvlddmkm.sys</file>
+        </Image>
+      </Device>
+    </content>
+  </packageinformation>
+  <executable>
+    <executablename>NVMUP.exe</executablename>
+    <requiredparameters>
+      <commandlineparameter/>
+    </requiredparameters>
+  </executable>
+  <behaviors>
+    <behavior name="extractdrivers">
+      <vendoroption>
+        <container>
+          <containervalue switch="/" requiresvalue="false" valuedelimiter="" enclose="&quot;">v</containervalue>
+          <optionvalue switch="" requiresvalue="true" valuedelimiter="=" enclose="\&quot;">EXTRACTDRIVERS</optionvalue>
+        </container>
+      </vendoroption>
+    </behavior>
+    <behavior name="attended"/>
+    <behavior name="unattended">
+      <vendoroption>
+        <optionvalue requiresvalue="false" switch="/">s</optionvalue>
+      </vendoroption>
+    </behavior>
+    <behavior name="freshinstall">
+      <vendoroption>
+        <container>
+          <containervalue switch="/" requiresvalue="false" valuedelimiter=" " enclose="&quot;">v</containervalue>
+          <optionvalue switch="" requiresvalue="false" valuedelimiter="=">FRESHINSTALL</optionvalue>
+        </container>
+      </vendoroption>
+    </behavior>
+  </behaviors>
+  <parameters>
+    <parametermapping name="logfile">
+      <vendoroption>
+        <container>
+          <containervalue switch="/" requiresvalue="false" valuedelimiter=" " enclose="&quot;">v</containervalue>
+          <optionvalue switch="" requiresvalue="true" valuedelimiter="=" enclose="\&quot;">LOGFILE</optionvalue>
+        </container>
+      </vendoroption>
+    </parametermapping>
+    <parametermapping name="force">
+      <vendoroption>
+        <container>
+          <containervalue switch="/" requiresvalue="false" valuedelimiter=" " enclose="&quot;">v</containervalue>
+          <optionvalue switch="" requiresvalue="false" valuedelimiter="=">FORCE</optionvalue>
+        </container>
+      </vendoroption>
+    </parametermapping>
+  </parameters>
+  <returncodes>
+    <returncodemapping name="SUCCESS">
+      <vendorreturncode>0</vendorreturncode>
+    </returncodemapping>
+    <returncodemapping name="ERROR">
+      <vendorreturncode>1603</vendorreturncode>
+    </returncodemapping>
+    <returncodemapping name="REBOOT_REQUIRED">
+      <vendorreturncode>3010</vendorreturncode>
+    </returncodemapping>
+    <returncodemapping name="ERROR_INSTALL_PLATFORM_UNSUPPORTED">
+      <vendorreturncode>1633</vendorreturncode>
+    </returncodemapping>
+    <returncodemapping name="DEP_SOFT_ERROR">
+      <vendorreturncode>3</vendorreturncode>
+    </returncodemapping>
+    <returncodemapping name="REBOOTING_SYSTEM">
+      <vendorreturncode>1641</vendorreturncode>
+    </returncodemapping>
+    <returncodemapping name="REBOOT_UPDATE_PENDING">
+      <vendorreturncode>9</vendorreturncode>
+    </returncodemapping>
+    <returncodemapping name="UNKNOWN_OPTION">
+      <vendorreturncode>1608</vendorreturncode>
+    </returncodemapping>
+    <returncodemapping name="ERROR">
+      <vendorreturncode>1602</vendorreturncode>
+    </returncodemapping>
+  </returncodes>
+  <inventorymetadata>
+    <fullpackageidentifier>
+      <registrykeys>
+        <registrykey componentID="104307">
+            <name>HKEY_LOCAL_MACHINE\SOFTWARE\NVIDIA Corporation\Installer\DisplayDriverVersion\</name>
+            <value>385.08</value>
+            <displayName>HKEY_LOCAL_MACHINE\SOFTWARE\NVIDIA Corporation\Installer\Display\</displayName>
+            <displayValue>"Display Driver"</displayValue>
+        </registrykey>
+      </registrykeys>
+    </fullpackageidentifier>
+  </inventorymetadata>
+</MUPDefinition>
